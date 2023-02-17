@@ -1,0 +1,6049 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": 0,
+    "latitude": 37.04663,
+    "longitude": 37.359009,
+    "maxZoom": 15,
+    "minZoom": 3,
+    "pitch": 0,
+    "zoom": 6
+  },
+  "layers": [
+    {
+      "@@type": "ScatterplotLayer",
+      "data": [
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2510051,
+              37.0185766
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0185766",
+          "longitude": "35.2510051",
+          "name": "Bah\u00e7e\u015fehir Koleji",
+          "url": "https://twitter.com/zeydankaralar01/status/1622644817506205709?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3055548,
+              37.0471721
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0471721",
+          "longitude": "35.3055548",
+          "name": "Eral \u0130lkokulu ve Ortaokulu",
+          "url": "https://twitter.com/ZeydanKaralar01/status/1622644817506205709",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.247178,
+              37.058023
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.058023",
+          "longitude": "35.247178",
+          "name": "T\u00fcyap Fuar ve Kongre Merkezi",
+          "url": "https://twitter.com/Adana_Bld/status/1622621175925858304",
+          "validation_date": ""
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.2256069,
+              37.7698064
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7698064",
+          "longitude": "38.2256069",
+          "name": "TPAO",
+          "url": "https://twitter.com/AdiyamanBelTR/status/1624014011250491394",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1694737,
+              37.9136483
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9136483",
+          "longitude": "40.1694737",
+          "name": "Ofis Adana Tatl\u0131c\u0131s\u0131 ",
+          "url": "",
+          "validation_date": ""
+        },
+        {
+          "city": "Eski\u015fehir",
+          "geometry": {
+            "coordinates": [
+              30.5168311,
+              39.7757104
+            ],
+            "type": "Point"
+          },
+          "latitude": "39.7757104",
+          "longitude": "30.5168311",
+          "name": "Eski\u015fehir Astsubay Orduevi",
+          "url": "",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              32.4842158,
+              37.9196583
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9196583",
+          "longitude": "32.4842158",
+          "name": "\u0130krar Haf\u0131zl\u0131k Erkek Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              32.5425488,
+              37.7975893
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7975893",
+          "longitude": "32.5425488",
+          "name": "Beyt\u00fcl-Hikmet Erkek Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              32.5289209,
+              38.0140781
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.0140781",
+          "longitude": "32.5289209",
+          "name": "Yunus Emre Erkek Yat\u0131l\u0131 Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3495072,
+              38.3563616
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3563616",
+          "longitude": "38.3495072",
+          "name": "G\u00f6ztepe Ye\u015filcam Caddesi",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.1996536,
+              38.340406
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.340406",
+          "longitude": "38.1996536",
+          "name": "OSB",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3190971,
+              37.0037822
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0037822",
+          "longitude": "35.3190971",
+          "name": "Adana Gar\u0131",
+          "url": "https://www.instagram.com/p/CoX3dz0A_Pw/?igshid=NTdlMDg3MTY%3D",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3055548,
+              37.0471721
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0471721",
+          "longitude": "35.3055548",
+          "name": "Eral \u0130lokul ve Ortaokul",
+          "url": "https://twitter.com/zeydankaralar01/status/1622644817506205709?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.1769485,
+              37.0269025
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0269025",
+          "longitude": "35.1769485",
+          "name": "TED Adana Koleji",
+          "url": "https://twitter.com/zeydankaralar01/status/1622644817506205709?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3293386,
+              36.9966027
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9966027",
+          "longitude": "35.3293386",
+          "name": "Garden Business Hotel",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2501538,
+              37.0058946
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0058946",
+          "longitude": "35.2501538",
+          "name": "U\u011fur Okullar\u0131",
+          "url": "https://twitter.com/zeydankaralar01/status/1622644817506205709?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2615689,
+              37.0452553
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0452553",
+          "longitude": "35.2615689",
+          "name": "Adana Final Okullar\u0131",
+          "url": "https://twitter.com/zeydankaralar01/status/1622644817506205709?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3900072,
+              37.0515228
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0515228",
+          "longitude": "35.3900072",
+          "name": "Kut'\u00fcl Amare Yurdu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.0769879,
+              36.9756887
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9756887",
+          "longitude": "35.0769879",
+          "name": "\u00c7a\u011f \u00dcniversitesi Ya\u015far Baybo\u011fan Kamp\u00fcs\u00fc",
+          "url": "https://twitter.com/Adana_Bld/status/1622962147322916864?s=20&t=UsNDJEhPEMucsKPTHjHcTg",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2467078,
+              37.0399835
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0399835",
+          "longitude": "35.2467078",
+          "name": "Adana Cemevi",
+          "url": "https://twitter.com/turkdaimaileri/status/1622567979270516736?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.299368,
+              37.058095
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.058095",
+          "longitude": "35.299368",
+          "name": "Minecan Anaokulu",
+          "url": "https://twitter.com/zeydankaralar01/status/1622644817506205709?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2656898,
+              37.0320549
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0320549",
+          "longitude": "35.2656898",
+          "name": "\u00c7ukurova Atletizm Pisti",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2423638,
+              37.0381771
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0381771",
+          "longitude": "35.2423638",
+          "name": "Alt\u0131neller 100.Y\u0131l ve Mavi Bulvar Kamp\u00fcs\u00fc",
+          "url": "https://twitter.com/zeydankaralar01/status/1622644817506205709?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3750793,
+              37.0635716
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0635716",
+          "longitude": "35.3750793",
+          "name": "Yeni Adana Stadyumu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2747845,
+              37.0450186
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0450186",
+          "longitude": "35.2747845",
+          "name": "Ba\u015fkent \u00dcniversitesi \u00d6zel Ba\u015fkent Okullar\u0131",
+          "url": "https://twitter.com/iskaraman/status/1623093598722859008",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.314714,
+              36.97227
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.97227",
+          "longitude": "35.314714",
+          "name": "Nihat Geven Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3148775,
+              36.9922479
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9922479",
+          "longitude": "35.3148775",
+          "name": "Sedef Hotel",
+          "url": "https://www.otelz.com/gecmisolsunturkiyem",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3582317,
+              37.0358455
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0358455",
+          "longitude": "35.3582317",
+          "name": "Toroslar Yurdu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3131407,
+              37.034413
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.034413",
+          "longitude": "35.3131407",
+          "name": "G\u00fcndo\u011fdu Koleji",
+          "url": "https://twitter.com/amofesor/status/1622607644832804865",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.827965,
+              37.027795
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.027795",
+          "longitude": "35.827965",
+          "name": "Ceyhan Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.422065,
+              37.0401779
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0401779",
+          "longitude": "35.422065",
+          "name": "As\u0131m Sava\u015f Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.31547,
+              37.0299549
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0299549",
+          "longitude": "35.31547",
+          "name": "The Most Coffee",
+          "url": "https://www.instagram.com/themostcoffe/",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3581298,
+              37.0039059
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0039059",
+          "longitude": "35.3581298",
+          "name": "Serinevler Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3301584,
+              36.999549
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.999549",
+          "longitude": "35.3301584",
+          "name": "TOHM Binas\u0131",
+          "url": "",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3162393,
+              37.0224403
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0224403",
+          "longitude": "35.3162393",
+          "name": "Adana Koleji",
+          "url": "https://twitter.com/zeydankaralar01/status/1622644817506205709?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2856851,
+              36.9942021
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9942021",
+          "longitude": "35.2856851",
+          "name": "ASKON Adana \u015eubesi",
+          "url": "https://twitter.com/orhanaydin/status/1622517195937923075?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3307537,
+              37.0002035
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0002035",
+          "longitude": "35.3307537",
+          "name": "Menderes Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3211824,
+              36.9960515
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9960515",
+          "longitude": "35.3211824",
+          "name": "Atat\u00fcrk Y\u00fczme Havuzu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3247852,
+              36.9843378
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9843378",
+          "longitude": "35.3247852",
+          "name": "Saydam Otel",
+          "url": "",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.8030516,
+              37.4682097
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.4682097",
+          "longitude": "35.8030516",
+          "name": "Kozan Yurdu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2671564,
+              37.033226
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.033226",
+          "longitude": "35.2671564",
+          "name": "Adana Gen\u00e7lik Merkezi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3576838,
+              37.0354281
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0354281",
+          "longitude": "35.3576838",
+          "name": "\u00c7ukurova Yurdu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.329341,
+              37.0222925
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0222925",
+          "longitude": "35.329341",
+          "name": "\u0130smet Atl\u0131 G\u00fcre\u015f E\u011fitim Merkezi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2125742,
+              37.9300263
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9300263",
+          "longitude": "40.2125742",
+          "name": "Rekabet Kurumu Anadolu Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1110572,
+              37.9113324
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9113324",
+          "longitude": "40.1110572",
+          "name": "\u0130MKB Fen Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2165133,
+              37.9233984
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9233984",
+          "longitude": "40.2165133",
+          "name": "Fatih Anadolu \u0130HL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3287976,
+              36.9852399
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9852399",
+          "longitude": "35.3287976",
+          "name": "P\u0131nar Elite Otel",
+          "url": "",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3557116,
+              37.0538224
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0538224",
+          "longitude": "35.3557116",
+          "name": "Sak\u0131p Sabanc\u0131 Spor Salonu ",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj//",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2153365,
+              37.9077974
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9077974",
+          "longitude": "40.2153365",
+          "name": "Yeni Diyarbak\u0131r AL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2423638,
+              37.0381771
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0381771",
+          "longitude": "35.2423638",
+          "name": "Alt\u0131neller 100. Y\u0131l Kamp\u00fcs\u00fc",
+          "url": "https://www.instagram.com/p/Coe6SBzodd_/",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3850647,
+              37.0392018
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0392018",
+          "longitude": "35.3850647",
+          "name": "Adana Alparslan T\u00fcrke\u015f Bilim ve Teknoloji \u00dcniversitesi\r",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2208728,
+              37.9218214
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9218214",
+          "longitude": "40.2208728",
+          "name": "Muhammet Yurto\u011flu Mesleki ve Teknik Anadolu Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.310305,
+              36.9923613
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9923613",
+          "longitude": "35.310305",
+          "name": "\u0130hsan Sabanc\u0131 Mesleki ve Teknik Anadolu Lisesi",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj/",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2509518,
+              37.865485
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.865485",
+          "longitude": "40.2509518",
+          "name": "Vali Ayd\u0131n Aslan Fen Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.6254494,
+              37.7831209
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7831209",
+          "longitude": "38.6254494",
+          "name": "Kahta \u0130l\u00e7e Stad\u0131",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1104771,
+              37.917649
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.917649",
+          "longitude": "40.1104771",
+          "name": "TOBB \u0130lkokulu",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1462773,
+              37.9986146
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9986146",
+          "longitude": "40.1462773",
+          "name": "\u0130bn-i Sina MTAL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Denizli",
+          "geometry": {
+            "coordinates": [
+              29.0436508,
+              37.7795357
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7795357",
+          "longitude": "29.0436508",
+          "name": "Denizli Dini Y\u00fcksek \u0130htisas Merkezi ",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3165208,
+              37.0319459
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0319459",
+          "longitude": "35.3165208",
+          "name": "Freya Cafe",
+          "url": "https://www.instagram.com/freyacafe/",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2681753,
+              37.0366023
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0366023",
+          "longitude": "35.2681753",
+          "name": "Ahmet Sabanc\u0131 Anaokulu",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj/",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1254767,
+              37.926844
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.926844",
+          "longitude": "40.1254767",
+          "name": "Eren \u015eahin Eronat MTAL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1707024,
+              37.9157389
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9157389",
+          "longitude": "40.1707024",
+          "name": "Ba\u011fc\u0131lar Mesleki ve Teknik Anadolu Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Bursa",
+          "geometry": {
+            "coordinates": [
+              28.983185,
+              40.217775
+            ],
+            "type": "Point"
+          },
+          "latitude": "40.217775",
+          "longitude": "28.983185",
+          "name": "Bursa Dini \u0130ktisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.2811903,
+              37.7579562
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7579562",
+          "longitude": "38.2811903",
+          "name": "Ad\u0131yaman Atat\u00fcrk Stadyumu Trib\u00fcn Alt\u0131 Antrenman Salonlar\u0131",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.6104252,
+              37.7872844
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7872844",
+          "longitude": "38.6104252",
+          "name": "Gazi Spor Salonu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.230478,
+              37.9162531
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9162531",
+          "longitude": "40.230478",
+          "name": "Ziya G\u00f6kalp AL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.2811903,
+              37.7579562
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7579562",
+          "longitude": "38.2811903",
+          "name": "Ad\u0131yaman Atat\u00fcrk Stad\u0131",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.4265543,
+              37.0437951
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0437951",
+          "longitude": "35.4265543",
+          "name": "H\u00fcseyin Avni Co\u015f \u0130lkokulu",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2079641,
+              37.903103
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.903103",
+          "longitude": "40.2079641",
+          "name": "\u015eehit Nam\u0131k T\u00fcmer \u0130lk\u00f6\u011fretim Okulu",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Antalya",
+          "geometry": {
+            "coordinates": [
+              30.7268206,
+              36.885291
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.885291",
+          "longitude": "30.7268206",
+          "name": "Hac\u0131 Mehmet Gebizli Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2871162,
+              36.9946961
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9946961",
+          "longitude": "35.2871162",
+          "name": "Sak\u0131p Sabanc\u0131 Ortaokulu",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj//",
+          "validation_date": ""
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.2257053,
+              37.7359554
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7359554",
+          "longitude": "38.2257053",
+          "name": "Safvan Bin Muattal K\u0131z Yurdu",
+          "url": "https://twitter.com/mahmutcuhadar4/status/1624062629705572353",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1110572,
+              37.9113324
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9113324",
+          "longitude": "40.1110572",
+          "name": "Borsa \u0130stanbul Fen Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3789584,
+              37.0586851
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0586851",
+          "longitude": "35.3789584",
+          "name": "\u015eehit Ertan Toku\u015f \u0130lkokulu",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1998633,
+              37.9162261
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9162261",
+          "longitude": "40.1998633",
+          "name": "\u015eehit Hatip \u00c7a\u011flar AL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3204371,
+              36.9972682
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9972682",
+          "longitude": "35.3204371",
+          "name": "Ziyapa\u015fa Park Otel",
+          "url": "https://twitter.com/OguzhanUgur/status/1622725240420814850",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2195628,
+              37.8964665
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.8964665",
+          "longitude": "40.2195628",
+          "name": "\u015eehitlik K\u00f6\u015fkler Gen\u00e7lik Merkezi \u00c7ok Ama\u00e7l\u0131 Salon",
+          "url": "https://twitter.com/dbakirvalilik/status/1622635300794077186",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.167163,
+              37.908958
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.908958",
+          "longitude": "40.167163",
+          "name": "Karacada\u011f A\u0130HL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2201051,
+              37.894754
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.894754",
+          "longitude": "40.2201051",
+          "name": "\u015eehitlik K\u00f6\u015fkler Spor Salonu",
+          "url": "https://twitter.com/dbakirvalilik/status/1622635300794077186",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1085319,
+              37.9186903
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9186903",
+          "longitude": "40.1085319",
+          "name": "500 Evler MTAL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              32.8330586,
+              39.9994301
+            ],
+            "type": "Point"
+          },
+          "latitude": "39.9994301",
+          "longitude": "32.8330586",
+          "name": "\u00d6zel Eflatun MTAL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3571203,
+              37.0366701
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0366701",
+          "longitude": "35.3571203",
+          "name": "5 Ocak Yurdu",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3248898,
+              36.996469
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.996469",
+          "longitude": "35.3248898",
+          "name": "Sabanc\u0131 Mesleki ve Teknik Anadolu Lisesi",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj/",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.162399,
+              37.913487
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.913487",
+          "longitude": "40.162399",
+          "name": "Nevruz Park",
+          "url": "https://twitter.com/diyarbakirbld/status/1622625704750751744",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.420748,
+              37.0422661
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0422661",
+          "longitude": "35.420748",
+          "name": "Sar\u0131\u00e7am Anadolu \u0130mam Hatip Lisesi",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3550074,
+              37.0603375
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0603375",
+          "longitude": "35.3550074",
+          "name": "\u00c7ukurova \u00dcniversitesi",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2186354,
+              37.9128115
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9128115",
+          "longitude": "40.2186354",
+          "name": "S\u00fcmerpark",
+          "url": "https://twitter.com/diyarbakirbld/status/1622625704750751744",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Ankara",
+          "geometry": {
+            "coordinates": [
+              32.8615616,
+              39.9161994
+            ],
+            "type": "Point"
+          },
+          "latitude": "39.9161994",
+          "longitude": "32.8615616",
+          "name": "R\u0131fat B\u00f6rek\u00e7i Dini \u0130htisas Merkezi ",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.185079,
+              37.959662
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.959662",
+          "longitude": "40.185079",
+          "name": "Diyarbak\u0131r Spor Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1658833,
+              37.943534
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.943534",
+          "longitude": "40.1658833",
+          "name": "Kent Meydan\u0131",
+          "url": "https://twitter.com/diyarbakirbld/status/1622625704750751744",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.139155,
+              37.968404
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.968404",
+          "longitude": "40.139155",
+          "name": "Vali G\u00f6khan Ayd\u0131ner Mesleki ve Teknik Anadolu Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              36.2092363,
+              38.2593536
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.2593536",
+          "longitude": "36.2092363",
+          "name": "Enerjisa Tufanbeyli Mesleki Teknik Anadolu L\u0130sesi",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj/",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1635547,
+              37.9598395
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9598395",
+          "longitude": "40.1635547",
+          "name": "Ali Emiri Anadolu Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              37.8810043,
+              37.6814962
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.6814962",
+          "longitude": "37.8810043",
+          "name": "Besni \u0130l\u00e7e Spor Salonu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3298711,
+              36.9937536
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9937536",
+          "longitude": "35.3298711",
+          "name": "Sad\u0131ka Sabanc\u0131 \u0130mam Hatip Lisesi \u00d6\u011frenci yurdu",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj/",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.2871162,
+              36.9946961
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9946961",
+          "longitude": "35.2871162",
+          "name": "Sad\u0131ka Sabanc\u0131 Ortaokulu",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj/",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2237183,
+              37.9015483
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9015483",
+          "longitude": "40.2237183",
+          "name": "85. Y\u0131l Milli Egemenlik Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.223506,
+              37.9033609
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9033609",
+          "longitude": "40.223506",
+          "name": "Diyarbak\u0131r Anadolu Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2139109,
+              37.924023
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.924023",
+          "longitude": "40.2139109",
+          "name": "Ko\u015fuyolu",
+          "url": "https://twitter.com/diyarbakirbld/status/1622625704750751744",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2171433,
+              37.9079707
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9079707",
+          "longitude": "40.2171433",
+          "name": "Yeni\u015fehir K\u0131z Anadolu \u0130mam Hatip Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.387086,
+              37.017094
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.017094",
+          "longitude": "35.387086",
+          "name": "Remzi O\u011fuz Ar\u0131k \u0130lkokulu",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Antalya",
+          "geometry": {
+            "coordinates": [
+              31.3508775,
+              36.8088965
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8088965",
+          "longitude": "31.3508775",
+          "name": "Dream World Palace Hotel",
+          "url": "https://dreamworldpalace.com.tr/",
+          "validation_date": "08.02.2023"
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.6229707,
+              37.7880946
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7880946",
+          "longitude": "38.6229707",
+          "name": "Atat\u00fcrk Spor Salonu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1924109,
+              37.9572467
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9572467",
+          "longitude": "40.1924109",
+          "name": "Seyrantepe Antrenman Salonu",
+          "url": "https://twitter.com/dbakirvalilik/status/1622635300794077186",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.2836362,
+              37.7567263
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7567263",
+          "longitude": "38.2836362",
+          "name": "\u00c7ok Ama\u00e7l\u0131 Spor Salonu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Artvin",
+          "geometry": {
+            "coordinates": [
+              41.7809562,
+              41.2396659
+            ],
+            "type": "Point"
+          },
+          "latitude": "41.2396659",
+          "longitude": "41.7809562",
+          "name": "Artvin Belediyesi Marina Tatil K\u00f6y\u00fc Sosyal Tesisleri",
+          "url": "https://twitter.com/artvinbeltr/status/1623044291667828747",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2232972,
+              37.9083
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9083",
+          "longitude": "40.2232972",
+          "name": "Yeni\u015fehir \u015eehitlik MTAL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1529012,
+              37.9240209
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9240209",
+          "longitude": "40.1529012",
+          "name": "T\u00fcrk Telekom MTAL G\u00fcney Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1388413,
+              37.93991
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.93991",
+          "longitude": "40.1388413",
+          "name": "Mehmet Akif Ersoy A\u0130HL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.5689615,
+              36.9834339
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9834339",
+          "longitude": "35.5689615",
+          "name": "T\u00fcrk Tekstil Vakf\u0131 Mesleki ve Teknik Anadolu Lisesi",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1897289,
+              37.958762
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.958762",
+          "longitude": "40.1897289",
+          "name": "Rekabet Kurumu Cumhuriyet Fen Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1459967,
+              37.9116493
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9116493",
+          "longitude": "40.1459967",
+          "name": "TOBB Ferdi Yi\u011fit A\u0130HL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.4109152,
+              37.030506
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.030506",
+          "longitude": "35.4109152",
+          "name": "Abdullah \u00d6ngen Anaokulu",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1748214,
+              37.9267978
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9267978",
+          "longitude": "40.1748214",
+          "name": "Ba\u011flar \u0130BB Kipta\u015f Mesleki ve Teknik Anadolu Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2237183,
+              37.9015483
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9015483",
+          "longitude": "40.2237183",
+          "name": "85. Y\u0131l Milli Egemenlik AL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1855817,
+              37.9592764
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9592764",
+          "longitude": "40.1855817",
+          "name": "Diyarbak\u0131r G\u00fczel Sanatlar Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.4226308,
+              37.0390254
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0390254",
+          "longitude": "35.4226308",
+          "name": "Hac\u0131 \u00d6zcan Sina\u011f Ortaokulu",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.223681,
+              37.9025528
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9025528",
+          "longitude": "40.223681",
+          "name": "Necip A\u015fk\u0131n Diyarbak\u0131r Anadolu Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3839059,
+              37.0070056
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0070056",
+          "longitude": "35.3839059",
+          "name": "Adana Rotary Kul\u00fcb\u00fc Anaokulu",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1893844,
+              37.9249486
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9249486",
+          "longitude": "40.1893844",
+          "name": "Diyarbak\u0131r Cemevi",
+          "url": "https://twitter.com/turkdaimaileri/status/1622567979270516736?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07.02.2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1120871,
+              37.9237898
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9237898",
+          "longitude": "40.1120871",
+          "name": "Evliya \u00c7elebi Ortaokulu",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.27205,
+              37.0279672
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0279672",
+          "longitude": "35.27205",
+          "name": "Alt\u0131neller Mavi Bulvar Kamp\u00fcs\u00fc",
+          "url": "https://www.instagram.com/p/Coe6SBzodd_/",
+          "validation_date": ""
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.2500529,
+              37.7734814
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7734814",
+          "longitude": "38.2500529",
+          "name": "Yenimahalle Spor Salonu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.3109151,
+              37.7629403
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7629403",
+          "longitude": "38.3109151",
+          "name": "Ad\u0131yaman Cemevi",
+          "url": "https://twitter.com/turkdaimaileri/status/1622567979270516736?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Ad\u0131yaman",
+          "geometry": {
+            "coordinates": [
+              38.2431098,
+              37.746711
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.746711",
+          "longitude": "38.2431098",
+          "name": "E\u011fri\u00e7ay Park\u0131",
+          "url": "https://twitter.com/AdiyamanBelTR/status/1624014011250491393",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1737705,
+              37.9541983
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9541983",
+          "longitude": "40.1737705",
+          "name": "\u015eehit Halit G\u00fclser K\u0131z Anadolu \u0130mam Hatip Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1466033,
+              37.9859999
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9859999",
+          "longitude": "40.1466033",
+          "name": "Farabi Mesleki Teknik AL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2457704,
+              37.8659414
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.8659414",
+          "longitude": "40.2457704",
+          "name": "Sur Anadolu \u0130mam Hatip Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3499559,
+              37.0099585
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0099585",
+          "longitude": "35.3499559",
+          "name": "Y\u00fcre\u011fir Gen\u00e7lik Merkezi",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.201275,
+              37.91661
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.91661",
+          "longitude": "40.201275",
+          "name": "Burhanettin Y\u0131ld\u0131z MTAL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3986198,
+              37.0280896
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0280896",
+          "longitude": "35.3986198",
+          "name": "Kozano\u011flu Lions Anaokulu\r",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1727722,
+              37.9466301
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9466301",
+          "longitude": "40.1727722",
+          "name": "\u015eehit \u00d6mer Halis Demir A\u0130HL",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.3342198,
+              36.9915814
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9915814",
+          "longitude": "35.3342198",
+          "name": "Sabanc\u0131 Merkez Camii",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj/",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1814674,
+              37.9211508
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9211508",
+          "longitude": "40.1814674",
+          "name": "Halk E\u011fitim Merkezi M\u00fcd\u00fcrl\u00fc\u011f\u00fc",
+          "url": "https://twitter.com/diyarbakirbld/status/1622621969840590848",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.4234996,
+              37.0403523
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0403523",
+          "longitude": "35.4234996",
+          "name": "Sevgi Anaokulu",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.269277,
+              37.036023
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.036023",
+          "longitude": "35.269277",
+          "name": "Sabanc\u0131 \u0130lkokulu",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj//",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1876039,
+              37.958309
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.958309",
+          "longitude": "40.1876039",
+          "name": "\u0130MKB 75. Y\u0131l Y\u0130BO",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622661649080322",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Adana",
+          "geometry": {
+            "coordinates": [
+              35.4249657,
+              37.0343735
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0343735",
+          "longitude": "35.4249657",
+          "name": "Orhangazi \u0130mam Hatip Ortaokulu",
+          "url": "https://twitter.com/avbilaluludag/status/1623639373190160386/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2232574,
+              37.900166
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.900166",
+          "longitude": "40.2232574",
+          "name": "Merkez Anadolu \u0130mam Hatip Lisesi",
+          "url": "https://twitter.com/diyarbakirbld/status/1622622331301511169",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1909561,
+              37.9569206
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9569206",
+          "longitude": "40.1909561",
+          "name": "Seyrantepe B\u00fcy\u00fck Salon",
+          "url": "https://twitter.com/dbakirvalilik/status/1622635300794077186",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Ankara",
+          "geometry": {
+            "coordinates": [
+              32.7691726,
+              39.9740972
+            ],
+            "type": "Point"
+          },
+          "latitude": "39.9740972",
+          "longitude": "32.7691726",
+          "name": "Dini Y\u00fcksek \u0130htisas Merkezi ",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Erzurum",
+          "geometry": {
+            "coordinates": [
+              41.1950916,
+              39.9152884
+            ],
+            "type": "Point"
+          },
+          "latitude": "39.9152884",
+          "longitude": "41.1950916",
+          "name": "\u00d6mer Nasuhi Bilmen Dini Y\u00fcksek \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3113912,
+              37.0280057
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0280057",
+          "longitude": "37.3113912",
+          "name": "M\u00fczeyyen Erkul Bilim ve Sanat Merkezi",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.4324031,
+              37.0948312
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0948312",
+          "longitude": "37.4324031",
+          "name": "Gazikent Y\u00fczme Havuzu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2587424,
+              37.931091
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.931091",
+          "longitude": "40.2587424",
+          "name": "Selahattin Eyyubi K\u0131z Yurdu M\u00fcd\u00fcrl\u00fc\u011f\u00fc",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              41.001561,
+              38.14073
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.14073",
+          "longitude": "41.001561",
+          "name": "Silvan Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3797187,
+              37.0659332
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0659332",
+          "longitude": "37.3797187",
+          "name": "Panaroma M\u00fczesi",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3655457,
+              37.0785941
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0785941",
+          "longitude": "37.3655457",
+          "name": "Goap",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1637708,
+              37.9256871
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9256871",
+          "longitude": "40.1637708",
+          "name": "Divan Hotel Diyarbak\u0131r",
+          "url": "https://www.instagram.com/p/CocCDmzt_CI/?igshid=OTRmMjhlYjM=",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1531685,
+              37.9218138
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9218138",
+          "longitude": "40.1531685",
+          "name": "S\u00fcleyman Bin Halid K\u0131z Yurdu M\u00fcd\u00fcrl\u00fc\u011f\u00fc",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.7937372,
+              37.0202533
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0202533",
+          "longitude": "37.7937372",
+          "name": "Nizip Gen\u00e7lik Merkezi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              36.634358,
+              37.0380759
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0380759",
+          "longitude": "36.634358",
+          "name": "\u0130slahiye Atat\u00fcrk Stad\u0131",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.4179286,
+              37.0518133
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0518133",
+          "longitude": "37.4179286",
+          "name": "Perilikaya Spor Salonu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3761427,
+              37.063234
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.063234",
+          "longitude": "37.3761427",
+          "name": "Karakedi Sakl\u0131 Bah\u00e7e",
+          "url": "https://www.instagram.com/reel/CoU7UwfKCtE/?igshid=NTdlMDg3MTY=",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3318835,
+              37.0358554
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0358554",
+          "longitude": "37.3318835",
+          "name": "Yeditepe Y\u00fczme Havuzu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2201051,
+              37.894754
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.894754",
+          "longitude": "40.2201051",
+          "name": "K\u00f6\u015fkler Spor Kompleksi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3680322,
+              37.0435837
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0435837",
+          "longitude": "37.3680322",
+          "name": "Ula\u015f Spor Salonu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2381169,
+              37.9108952
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9108952",
+          "longitude": "40.2381169",
+          "name": "Mar Petyun Keldani Kilisesi\r",
+          "url": "",
+          "validation_date": ""
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3959415,
+              37.0953834
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0953834",
+          "longitude": "37.3959415",
+          "name": "\u00c7i\u00e7ek Plaza D\u00fc\u011f\u00fcn Salonu",
+          "url": "https://instagram.com/stories/cicekplazagaziantep/3032241723521749525?utm_source=ig_story_item_share&igshid=NTdlMDg3MTY=",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1968207,
+              37.9194983
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9194983",
+          "longitude": "40.1968207",
+          "name": "Ba\u011flar Gen\u00e7lik Merkezi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.6473411,
+              38.4556221
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.4556221",
+          "longitude": "40.6473411",
+          "name": "Lice Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.4140215,
+              37.0781184
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0781184",
+          "longitude": "37.4140215",
+          "name": "\u00c7ok Ama\u00e7l\u0131 Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.4409794,
+              37.0471812
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0471812",
+          "longitude": "37.4409794",
+          "name": "\u0130ncilikaya Spor Salonu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.145638,
+              37.9099383
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9099383",
+          "longitude": "40.145638",
+          "name": "Halid Bin Velid Erkek Yurdu M\u00fcd\u00fcrl\u00fc\u011f\u00fc",
+          "url": "",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3766679,
+              37.1055947
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1055947",
+          "longitude": "37.3766679",
+          "name": "Onat Kutlar",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3261261,
+              37.0467456
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0467456",
+          "longitude": "37.3261261",
+          "name": "U\u011fur Okullar\u0131 Gaziantep Kamp\u00fcs\u00fc",
+          "url": "https://www.instagram.com/p/CoTp-OFqsSy/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Eski\u015fehir",
+          "geometry": {
+            "coordinates": [
+              30.5074836,
+              39.7564575
+            ],
+            "type": "Point"
+          },
+          "latitude": "39.7564575",
+          "longitude": "30.5074836",
+          "name": "Eski\u015fehir Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3111207,
+              37.0586448
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0586448",
+          "longitude": "37.3111207",
+          "name": "M. Vehbi Din\u00e7erler Spor Salonu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3170698,
+              37.0222949
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0222949",
+          "longitude": "37.3170698",
+          "name": "Ko\u015fuyolu",
+          "url": "https://twitter.com/turkdaimaileri/status/1622567979270516736?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.4324031,
+              37.0948312
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0948312",
+          "longitude": "37.4324031",
+          "name": "Gaziler Spor Salonu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.6892062,
+              37.4265042
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.4265042",
+          "longitude": "37.6892062",
+          "name": "Araban Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.8002182,
+              37.012247
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.012247",
+          "longitude": "37.8002182",
+          "name": "Nizip Stad\u0131",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2201051,
+              37.894754
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.894754",
+          "longitude": "40.2201051",
+          "name": "\u015eehitlik K\u00f6\u015fkler \u00c7ok Ama\u00e7l\u0131 Salon",
+          "url": "https://twitter.com/dbakirvalilik/status/1622635300794077186",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Elaz\u0131\u011f",
+          "geometry": {
+            "coordinates": [
+              39.2686111,
+              38.7041667
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.7041667",
+          "longitude": "39.2686111",
+          "name": "Harput Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2280129,
+              37.9162496
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9162496",
+          "longitude": "40.2280129",
+          "name": "Sur Gen\u00e7lik Merkezi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2110095,
+              37.9353375
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9353375",
+          "longitude": "40.2110095",
+          "name": "Yeni\u015fehir Seyrantepe Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1310115,
+              37.9385991
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9385991",
+          "longitude": "40.1310115",
+          "name": "TED Diyarbak\u0131r Koleji",
+          "url": "https://twitter.com/tedbandirma/status/1623744137156521985",
+          "validation_date": ""
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3748308,
+              37.0912253
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0912253",
+          "longitude": "37.3748308",
+          "name": "8 \u015eubat Y\u00fczme Havuzu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              35.9669139,
+              36.0990388
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.0990388",
+          "longitude": "35.9669139",
+          "name": "Antakya ve Samanda\u011f Cemevi",
+          "url": "https://twitter.com/turkdaimaileri/status/1622567979270516736?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2225329,
+              36.8364406
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8364406",
+          "longitude": "36.2225329",
+          "name": "D\u00f6rtyol Atat\u00fcrk Park\u0131 D\u00fc\u011f\u00fcn Salonu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3376812,
+              37.057535
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.057535",
+          "longitude": "37.3376812",
+          "name": "Hasan Do\u011fan Spor Kompleksi",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.4017334,
+              37.0610431
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0610431",
+          "longitude": "37.4017334",
+          "name": "Kamil Ocak Y\u00fczme Havuzu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.374688,
+              37.220205
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.220205",
+          "longitude": "37.374688",
+          "name": "Kuzey\u015fehir Spor Salonu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              36.6343727,
+              37.0389099
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0389099",
+          "longitude": "36.6343727",
+          "name": "\u0130slahiye Gen\u00e7lik Merkezi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1553053,
+              37.9419091
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9419091",
+          "longitude": "40.1553053",
+          "name": "Park 75",
+          "url": "https://twitter.com/diyarbakirbld/status/1624472195983458312",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2230274,
+              36.8474012
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8474012",
+          "longitude": "36.2230274",
+          "name": "D\u00f6rtyol Cennet Ana K\u0131z Anadolu \u0130mamhatip Lisesi",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3992751,
+              37.130111
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.130111",
+          "longitude": "37.3992751",
+          "name": "\u015eehitkamil Belediyesi Beykent Spor Salonu",
+          "url": "https://twitter.com/sehitkamilbel/status/1622637257189470210?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              39.770173,
+              38.255014
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.255014",
+          "longitude": "39.770173",
+          "name": "Ergani Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.4324031,
+              37.0948312
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0948312",
+          "longitude": "37.4324031",
+          "name": "Gazikent Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3245944,
+              37.0492134
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0492134",
+          "longitude": "37.3245944",
+          "name": "ASKON Gaziantep \u015eubesi",
+          "url": "https://twitter.com/orhanaydin/status/1622517195937923075?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3117335,
+              37.0581464
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0581464",
+          "longitude": "37.3117335",
+          "name": "Nesibe Ayd\u0131n Kamp\u00fcs\u00fc",
+          "url": "https://twitter.com/nesibeaydin/status/1622517062126936064?s=46&t=Ugb531WRI6HRdIIJZZj-TQ",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.120461,
+              37.9426634
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9426634",
+          "longitude": "40.120461",
+          "name": "Diyarbak\u0131r Stadyumu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3992751,
+              37.130111
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.130111",
+          "longitude": "37.3992751",
+          "name": "Beykent Spor Salonu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.1412039,
+              37.910198
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.910198",
+          "longitude": "40.1412039",
+          "name": "Bah\u00e7e\u015fehir Koleji Kamp\u00fcs\u00fc",
+          "url": "https://twitter.com/bahcesehir_k12/status/1624111945786789888",
+          "validation_date": ""
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3462946,
+              37.021128
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.021128",
+          "longitude": "37.3462946",
+          "name": "\u015eahinbey Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              39.4731031,
+              38.1365344
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.1365344",
+          "longitude": "39.4731031",
+          "name": "\u00c7ermik Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.2658239,
+              37.9203042
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9203042",
+          "longitude": "40.2658239",
+          "name": "Diyarbak\u0131r Dicle \u00dcniversitesi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.4351749,
+              37.0091593
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0091593",
+          "longitude": "37.4351749",
+          "name": "Kalyoncu Spor Salonu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.7937372,
+              37.0202533
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0202533",
+          "longitude": "37.7937372",
+          "name": "Yavuzeli Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.333277,
+              37.0688698
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0688698",
+          "longitude": "37.333277",
+          "name": "Olimpik Y\u00fczme Havuzu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3960015,
+              37.058055
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.058055",
+          "longitude": "37.3960015",
+          "name": "Talat \u00d6zkarsl\u0131 Spor Salonu",
+          "url": "https://twitter.com/fatmasahin/status/1622499495853322242?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Diyarbak\u0131r",
+          "geometry": {
+            "coordinates": [
+              40.226435,
+              37.914646
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.914646",
+          "longitude": "40.226435",
+          "name": "Dies Hotel",
+          "url": "",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2323796,
+              36.8497349
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8497349",
+          "longitude": "36.2323796",
+          "name": "D\u00f6rtyol Necip Faz\u0131l Ortaokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3071853,
+              38.3551853
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3551853",
+          "longitude": "38.3071853",
+          "name": "Salk\u00f6pr\u00fc Semt Kona\u011f\u0131",
+          "url": "https://twitter.com/selahattingrkn/status/1622427802090835968?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2305992,
+              36.8390336
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8390336",
+          "longitude": "36.2305992",
+          "name": "D\u00f6rtyol Gazi \u0130lkokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2217,
+              36.8443558
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8443558",
+          "longitude": "36.2217",
+          "name": "D\u00f6rtyol Ocakl\u0131 Anaokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2538921,
+              37.3075874
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.3075874",
+          "longitude": "36.2538921",
+          "name": "Aslanta\u015f Gen\u00e7lik Kamp\u0131",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1975282,
+              36.8205013
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8205013",
+          "longitude": "36.1975282",
+          "name": "D\u00f6rtyol Recep Ataka\u015f Mesleki Teknik Anadolu Lisesi",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              39.3287567,
+              37.7451097
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.7451097",
+          "longitude": "39.3287567",
+          "name": "Siverek Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2465723,
+              36.114519
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.114519",
+          "longitude": "36.2465723",
+          "name": "Alt\u0131n\u00f6z\u00fc Gen\u00e7lik Merkezi",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              37.0163513,
+              37.4419634
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.4419634",
+          "longitude": "37.0163513",
+          "name": "Mevcut Konteynerkent Yan\u0131",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.9229208,
+              37.556522
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.556522",
+          "longitude": "36.9229208",
+          "name": "Atat\u00fcrk Park\u0131",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              37.1908232,
+              38.1917337
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.1917337",
+          "longitude": "37.1908232",
+          "name": "Elbistan Gen\u00e7lik Merkezi",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              31.846399,
+              37.4167847
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.4167847",
+          "longitude": "31.846399",
+          "name": "Seyyid Harun Veli K\u0131z Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.210576,
+              36.834833
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.834833",
+          "longitude": "36.210576",
+          "name": "D\u00f6rtyol \u0130lk Ad\u0131m Anaokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.859077,
+              37.3929789
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.3929789",
+          "longitude": "36.859077",
+          "name": "T\u00fcrko\u011flu Stad\u0131",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              39.767143,
+              37.2251579
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.2251579",
+          "longitude": "39.767143",
+          "name": "Viran\u015fehir Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3566429,
+              38.3483006
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3483006",
+          "longitude": "38.3566429",
+          "name": "Battalgazi Sosyal Ya\u015fam Merkezi \u00c7\u00f6\u015fn\u00fck",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Kocaeli",
+          "geometry": {
+            "coordinates": [
+              29.9768253,
+              40.7052198
+            ],
+            "type": "Point"
+          },
+          "latitude": "40.7052198",
+          "longitude": "29.9768253",
+          "name": "Kocaeli Dini Y\u00fcksek \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2305132,
+              37.0527418
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0527418",
+          "longitude": "36.2305132",
+          "name": "Osmaniye \u00c7ok Ama\u00e7l\u0131 Spor Salonu",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2212814,
+              36.8341746
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8341746",
+          "longitude": "36.2212814",
+          "name": "D\u00f6rtyol \u00d6\u011fretmenevi ASO",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2286674,
+              37.0529071
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0529071",
+          "longitude": "36.2286674",
+          "name": "Osmaniye Olimpik Havuz",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1978064,
+              36.8696362
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8696362",
+          "longitude": "36.1978064",
+          "name": "D\u00f6rtyol Fen Lisesi",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2245443,
+              36.8154158
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8154158",
+          "longitude": "36.2245443",
+          "name": "D\u00f6rtyol \u015eehit Harun Ta\u015f \u0130lkokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.935542,
+              38.2369564
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.2369564",
+          "longitude": "36.935542",
+          "name": "Af\u015fin Stad\u0131",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              37.9769863,
+              38.3442326
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3442326",
+          "longitude": "37.9769863",
+          "name": "Ak\u00e7ada\u011f Anadolu Lisesi",
+          "url": "https://twitter.com/tcmalatyav/status/1622462732195835904?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Kilis",
+          "geometry": {
+            "coordinates": [
+              37.0991152,
+              36.7300222
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.7300222",
+          "longitude": "37.0991152",
+          "name": "Bilal Habe\u015fi Erkek Yurdu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.1582184,
+              36.1953545
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.1953545",
+          "longitude": "36.1582184",
+          "name": "Girne Caddesi \u00c7ad\u0131r Kent",
+          "url": "https://bjk.com.tr/tr/haber/85631/kulubumuz-depremzede-vatandaslarimiz-icin-cadir-kentler-kurdu.html",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3294665,
+              38.3508209
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3508209",
+          "longitude": "38.3294665",
+          "name": "F\u0131rat Gen\u00e7lik Merkezi",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Kastamonu",
+          "geometry": {
+            "coordinates": [
+              33.7607808,
+              41.3743745
+            ],
+            "type": "Point"
+          },
+          "latitude": "41.3743745",
+          "longitude": "33.7607808",
+          "name": "Kastamonu Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1408591,
+              36.5833293
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.5833293",
+          "longitude": "36.1408591",
+          "name": "Bah\u00e7e\u015fehir Koleji \u0130skenderun",
+          "url": "https://twitter.com/bahcesehir_k12/status/1624111945786789888",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              34.0492273,
+              37.5122019
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5122019",
+          "longitude": "34.0492273",
+          "name": "Mirel Hotel",
+          "url": "http://mirelhotel.com/tr/index.html",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.5626408,
+              36.2578686
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.2578686",
+          "longitude": "36.5626408",
+          "name": "Reyhanl\u0131 Gen\u00e7lik Merkezi",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.9168671,
+              37.5531279
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5531279",
+          "longitude": "36.9168671",
+          "name": "Kahramanmara\u015f Merkez Spor Kompleksi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.9412645,
+              37.5299673
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5299673",
+          "longitude": "36.9412645",
+          "name": "Hobi Bah\u00e7esi",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1559351,
+              36.8936677
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8936677",
+          "longitude": "36.1559351",
+          "name": "D\u00f6rtyol Yeniyurt Ortaokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1523909,
+              36.5645023
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.5645023",
+          "longitude": "36.1523909",
+          "name": "Cumartesi Pazar Alan\u0131",
+          "url": "",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2208787,
+              36.8136172
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8136172",
+          "longitude": "36.2208787",
+          "name": "D\u00f6rtyol Berat Kapal\u0131 Hal\u0131saha",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.5105133,
+              36.9589157
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9589157",
+          "longitude": "37.5105133",
+          "name": "O\u011fuzeli Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2468813,
+              38.326592
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.326592",
+          "longitude": "38.2468813",
+          "name": "Bostanba\u015f\u0131 Muhtarl\u0131\u011f\u0131",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2739351,
+              38.3476698
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3476698",
+          "longitude": "38.2739351",
+          "name": "\u00c7ok Ama\u00e7l\u0131 Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.208948,
+              36.851016
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.851016",
+          "longitude": "36.208948",
+          "name": "D\u00f6rtyol Erdi 2 Kapal\u0131 Hal\u0131saha",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              40.04872,
+              36.8589018
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8589018",
+          "longitude": "40.04872",
+          "name": "Ceylanp\u0131nar B\u00fcy\u00fck\u015fehir Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622444884618616834?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Samsun",
+          "geometry": {
+            "coordinates": [
+              36.2774791,
+              41.3246143
+            ],
+            "type": "Point"
+          },
+          "latitude": "41.3246143",
+          "longitude": "36.2774791",
+          "name": "A\u015f\u0131kkutlu Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2,
+              37.133333
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.133333",
+          "longitude": "36.2",
+          "name": "Cevdetiye Spor E\u011fitim Merkezi",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Rize",
+          "geometry": {
+            "coordinates": [
+              40.5225403,
+              41.0049981
+            ],
+            "type": "Point"
+          },
+          "latitude": "41.0049981",
+          "longitude": "40.5225403",
+          "name": "Rize M\u00fcft\u00fc Yusuf Karali Dini Y\u00fcksek \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2255682,
+              37.0678508
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0678508",
+          "longitude": "36.2255682",
+          "name": "Osmaniye Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1224644,
+              36.228894
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.228894",
+          "longitude": "36.1224644",
+          "name": "Merkez Cimnastik Spor Salonu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.9978329,
+              37.519177
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.519177",
+          "longitude": "36.9978329",
+          "name": "S\u00fct\u00e7\u00fc \u0130mam \u00dcniversitesi Karacasu Kamp\u00fcs\u00fc ",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              32.6535528,
+              37.5782768
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5782768",
+          "longitude": "32.6535528",
+          "name": "\u0130\u00e7eri\u00e7umra Erkek Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3302836,
+              38.352148
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.352148",
+          "longitude": "38.3302836",
+          "name": "Millet Bah\u00e7esi",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3316816,
+              38.3527676
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3527676",
+          "longitude": "38.3316816",
+          "name": "Battalgazi Belediyesi",
+          "url": "https://twitter.com/tcmalatyav/status/1622462732195835904?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              37.6701484,
+              38.8825782
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.8825782",
+          "longitude": "37.6701484",
+          "name": "Malatya Kuluncak \u0130l\u00e7e Milli E\u011fitim M\u00fcd\u00fcrl\u00fc\u011f\u00fc",
+          "url": "https://twitter.com/tcmalatyav/status/1622462732195835904?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.221698,
+              36.834646
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.834646",
+          "longitude": "36.221698",
+          "name": "D\u00f6rtyol \u015eehit Ayhan Say \u00c7PL Ana Binas\u0131",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2251736,
+              36.8429239
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8429239",
+          "longitude": "36.2251736",
+          "name": "D\u00f6rtyol Yunus Emre Ortaokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2236401,
+              36.8802869
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8802869",
+          "longitude": "36.2236401",
+          "name": "D\u00f6rtyol Kuzuculu Ortaokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.199269,
+              36.829261
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.829261",
+          "longitude": "36.199269",
+          "name": "D\u00f6rtyol Otogar Giri\u015fi Pazar Yeri",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.7894063,
+              37.2888863
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.2888863",
+          "longitude": "36.7894063",
+          "name": "TCDD Lojistik Merkez Alan\u0131",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2517697,
+              36.8075254
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8075254",
+          "longitude": "36.2517697",
+          "name": "D\u00f6rtyol Konakl\u0131 \u0130lkokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2404952,
+              37.0717361
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0717361",
+          "longitude": "36.2404952",
+          "name": "Osmaniye \u0130l M\u00fcd\u00fcrl\u00fc\u011f\u00fc Ana Bina",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              37.0364689,
+              37.445597
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.445597",
+          "longitude": "37.0364689",
+          "name": "Yeniyurt Mahallesi",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.923184,
+              37.558479
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.558479",
+          "longitude": "36.923184",
+          "name": "Kafum",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2882173,
+              38.3480661
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3480661",
+          "longitude": "38.2882173",
+          "name": "Dedekorkut Sosyal Tesisleri",
+          "url": "https://twitter.com/selahattingrkn/status/1622427802090835968?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.9236819,
+              37.5741279
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5741279",
+          "longitude": "36.9236819",
+          "name": "12 \u015eubat Stad\u0131 \u00c7ad\u0131rkent",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.4924392,
+              39.0416374
+            ],
+            "type": "Point"
+          },
+          "latitude": "39.0416374",
+          "longitude": "38.4924392",
+          "name": "Arapgir Belediyesi",
+          "url": "https://twitter.com/tcmalatyav/status/1622462732195835904?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              37.9706954,
+              38.343872
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.343872",
+          "longitude": "37.9706954",
+          "name": "Ak\u00e7ada\u011f Belediyesi",
+          "url": "https://twitter.com/tcmalatyav/status/1622462732195835904?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.0998496,
+              37.3806284
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.3806284",
+          "longitude": "36.0998496",
+          "name": "Osmaniye Kadirli Cemevi",
+          "url": "https://twitter.com/turkdaimaileri/status/1622567979270516736?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              39.038906,
+              38.313002
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.313002",
+          "longitude": "39.038906",
+          "name": "Do\u011fanyol Lisesi",
+          "url": "https://twitter.com/tcmalatyav/status/1622462732195835904?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.909752,
+              37.5680368
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5680368",
+          "longitude": "36.909752",
+          "name": "\u0130yilik Balonu A\u015fevi",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2730272,
+              38.3484549
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3484549",
+          "longitude": "38.2730272",
+          "name": "Olimpik Kapal\u0131 Y\u00fczme Havuzu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.556778,
+              38.025405
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.025405",
+          "longitude": "36.556778",
+          "name": "G\u00f6ksun Yantepe",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "Manisa",
+          "geometry": {
+            "coordinates": [
+              27.3862146,
+              38.6287048
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.6287048",
+          "longitude": "27.3862146",
+          "name": "Manisa Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2666177,
+              38.3088648
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3088648",
+          "longitude": "38.2666177",
+          "name": "Nesibe Ayd\u0131n Kamp\u00fcs\u00fc",
+          "url": "https://twitter.com/nesibeaydin/status/1622517062126936064?s=46&t=Ugb531WRI6HRdIIJZZj-TQ",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Kilis",
+          "geometry": {
+            "coordinates": [
+              37.1621446,
+              36.7088642
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.7088642",
+          "longitude": "37.1621446",
+          "name": "S\u00f6\u011f\u00fctl\u00fcdere Semt Sahas\u0131",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              32.4041422,
+              38.25163
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.25163",
+          "longitude": "32.4041422",
+          "name": "Fevzi Fatma Demirpolat K\u0131z Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              37.9711379,
+              38.344499
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.344499",
+          "longitude": "37.9711379",
+          "name": "Ak\u00e7ada\u011f \u015eehit Alper G\u00fcde Teknik Lise ve \u00c7ok Programl\u0131 Lise",
+          "url": "https://twitter.com/tcmalatyav/status/1622462732195835904?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Kilis",
+          "geometry": {
+            "coordinates": [
+              37.1026824,
+              36.7215688
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.7215688",
+          "longitude": "37.1026824",
+          "name": "Kilis K\u0131z Yurdu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2262985,
+              36.8280655
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8280655",
+          "longitude": "36.2262985",
+          "name": "D\u00f6rtyol \u0130l\u00e7e Jandarma Komutanl\u0131\u011f\u0131 Bah\u00e7esi",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Mardin",
+          "geometry": {
+            "coordinates": [
+              41.3771752,
+              37.4153907
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.4153907",
+          "longitude": "41.3771752",
+          "name": "Mons Masius",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.244592,
+              36.825048
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.825048",
+          "longitude": "36.244592",
+          "name": "D\u00f6rtyol Karakese \u0130lkokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Kocaeli",
+          "geometry": {
+            "coordinates": [
+              29.96613,
+              40.7659531
+            ],
+            "type": "Point"
+          },
+          "latitude": "40.7659531",
+          "longitude": "29.96613",
+          "name": "La Flora House Hotel",
+          "url": "https://www.instagram.com/stories/lotusmeat/3033074465344709007/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              37.4908327,
+              38.5604146
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.5604146",
+          "longitude": "37.4908327",
+          "name": "Darende H\u00fck\u00fcmet Kona\u011f\u0131",
+          "url": "https://twitter.com/selahattingrkn/status/1622427802090835968?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8157354,
+              37.1625362
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1625362",
+          "longitude": "38.8157354",
+          "name": "11 Nisan Olimpik Y\u00fczme Havuzu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Kilis",
+          "geometry": {
+            "coordinates": [
+              37.1424181,
+              36.7117606
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.7117606",
+          "longitude": "37.1424181",
+          "name": "Be\u015fevler 2500 Ki\u015filik Spor Salonu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.916347,
+              37.5886153
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5886153",
+          "longitude": "36.916347",
+          "name": "Bat\u0131park Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.918023,
+              37.535603
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.535603",
+          "longitude": "36.918023",
+          "name": "Tar\u0131msal Ara\u015ft\u0131rma",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2854943,
+              38.336328
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.336328",
+          "longitude": "38.2854943",
+          "name": "\u00d6zalper Semt Kona\u011f\u0131",
+          "url": "https://twitter.com/selahattingrkn/status/1622427802090835968?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3311111,
+              38.3641667
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3641667",
+          "longitude": "38.3311111",
+          "name": "Sel\u00e7uk Ecza Deposu",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.7908085,
+              37.1605757
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1605757",
+          "longitude": "38.7908085",
+          "name": "Rabia Meydan\u0131",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3643808,
+              38.4257995
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.4257995",
+          "longitude": "38.3643808",
+          "name": "Alacakap\u0131 Mahallesi",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.9344737,
+              37.5577036
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5577036",
+          "longitude": "36.9344737",
+          "name": "Hanefi Mah\u00e7i\u00e7ek Stadyumu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Mardin",
+          "geometry": {
+            "coordinates": [
+              40.7182998,
+              37.3300202
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.3300202",
+          "longitude": "40.7182998",
+          "name": "Beh\u00e7et Hattapo\u011flu Erkek Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2045748,
+              36.8240012
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8240012",
+          "longitude": "36.2045748",
+          "name": "D\u00f6rtyol S\u00fcleyman Demirel Anadolu Lisesi",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.4607701,
+              37.257149
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.257149",
+          "longitude": "36.4607701",
+          "name": "D\u00fczi\u00e7i Spor Salonu ve Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              32.500328,
+              37.860682
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.860682",
+          "longitude": "32.500328",
+          "name": "Fahrunnisa K\u0131z Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.205587,
+              38.405779
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.405779",
+          "longitude": "38.205587",
+          "name": "Ye\u015filyurt Merkez",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Mardin",
+          "geometry": {
+            "coordinates": [
+              41.3584817,
+              37.507184
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.507184",
+          "longitude": "41.3584817",
+          "name": "Midyat Antik Otel",
+          "url": "",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.233204,
+              37.051787
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.051787",
+          "longitude": "36.233204",
+          "name": "Osmaniye K\u0131z Yurdu",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1989203,
+              36.8269318
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8269318",
+          "longitude": "36.1989203",
+          "name": "D\u00f6rtyol \u015eehit Ayhan K\u0131ymac\u0131 \u0130lkokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1289068,
+              36.2151178
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.2151178",
+          "longitude": "36.1289068",
+          "name": "TOK\u0130 Spor Salonu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2267615,
+              37.0374095
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0374095",
+          "longitude": "36.2267615",
+          "name": "Karacao\u011flan Erkek Yurdu",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Kilis",
+          "geometry": {
+            "coordinates": [
+              37.1422025,
+              36.7120119
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.7120119",
+          "longitude": "37.1422025",
+          "name": "Kilis Gen\u00e7lik Merkezi",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.9533158,
+              37.5846434
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5846434",
+          "longitude": "38.9533158",
+          "name": "Hilvan Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622444884618616834?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Ordu",
+          "geometry": {
+            "coordinates": [
+              37.9519664,
+              40.9729039
+            ],
+            "type": "Point"
+          },
+          "latitude": "40.9729039",
+          "longitude": "37.9519664",
+          "name": "Ordu Dini \u0130htisas Merkezi ",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.7452891,
+              37.1366831
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1366831",
+          "longitude": "38.7452891",
+          "name": "Toki Bat\u0131kent Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1569715,
+              36.1993651
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.1993651",
+          "longitude": "36.1569715",
+          "name": "Atat\u00fcrk Park\u0131",
+          "url": "https://bjk.com.tr/tr/haber/85631/kulubumuz-depremzede-vatandaslarimiz-icin-cadir-kentler-kurdu.html",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              34.0417368,
+              37.4724254
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.4724254",
+          "longitude": "34.0417368",
+          "name": "Ere\u011fli Erkek Yurdu",
+          "url": "https://www.kykyurtlar.com/eregli-erkek-yurdu-54768-kyk-yurdu/",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8127289,
+              37.1214446
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1214446",
+          "longitude": "38.8127289",
+          "name": "Hayati Harrani Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622444884618616834?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1004126,
+              36.2210834
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.2210834",
+          "longitude": "36.1004126",
+          "name": "TED Hatay Koleji",
+          "url": "https://twitter.com/tedbandirma/status/1623744137156521985",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              37.9439547,
+              37.2287229
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.2287229",
+          "longitude": "37.9439547",
+          "name": "Halfeti Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622444884618616834?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1538725,
+              36.555716
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.555716",
+          "longitude": "36.1538725",
+          "name": "\u0130skenderun Deniz Er E\u011fitim Alay\u0131",
+          "url": "",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8191961,
+              37.1767563
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1767563",
+          "longitude": "38.8191961",
+          "name": "Kitap Ota\u011f\u0131 Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.916347,
+              37.5886153
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5886153",
+          "longitude": "36.916347",
+          "name": "Bat\u0131park",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Mersin",
+          "geometry": {
+            "coordinates": [
+              34.1366378,
+              36.4591177
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.4591177",
+          "longitude": "34.1366378",
+          "name": "Atlantis Dal\u0131\u015f Merkezi & Butik Otel",
+          "url": "",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1224644,
+              36.228894
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.228894",
+          "longitude": "36.1224644",
+          "name": "Merkez Spor Salonu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": ""
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2204845,
+              37.0408458
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0408458",
+          "longitude": "36.2204845",
+          "name": "OK\u00dc Gen\u00e7 Ofis ve Ota\u011f \u00c7ad\u0131r\u0131",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.329552,
+              38.3541669
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3541669",
+          "longitude": "38.329552",
+          "name": "Do\u011fu Garaj\u0131",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.7995869,
+              37.214839
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.214839",
+          "longitude": "38.7995869",
+          "name": "Karak\u00f6pr\u00fc Kapal\u0131 Spor Salonu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Karaman",
+          "geometry": {
+            "coordinates": [
+              33.2536254,
+              37.181703
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.181703",
+          "longitude": "33.2536254",
+          "name": "KYK Hatuniye K\u0131z \u00d6\u011frenci Yurdu",
+          "url": "",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3052578,
+              38.348615
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.348615",
+          "longitude": "38.3052578",
+          "name": "Do\u011fa Cadde",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              37.1573339,
+              38.2044004
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.2044004",
+          "longitude": "37.1573339",
+          "name": "Elbistan Devlet Hastanesi Bat\u0131s\u0131 ",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2458425,
+              38.3196111
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3196111",
+          "longitude": "38.2458425",
+          "name": "Bostanba\u015f\u0131 Mahallesi",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              32.4592396,
+              37.9262065
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9262065",
+          "longitude": "32.4592396",
+          "name": "Konya Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.1968669,
+              38.337652
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.337652",
+          "longitude": "38.1968669",
+          "name": "2. OSB Cami",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2464002,
+              37.0746279
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0746279",
+          "longitude": "36.2464002",
+          "name": "Kay\u0131boyu K\u0131z Yurdu",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2869491,
+              38.3467559
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3467559",
+          "longitude": "38.2869491",
+          "name": "Kongre K\u00fclt\u00fcr Merkezi Bah\u00e7esi",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              32.4834867,
+              37.9528457
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9528457",
+          "longitude": "32.4834867",
+          "name": "Ashab\u0131 Suffe Erkek Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2829342,
+              38.3464006
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3464006",
+          "longitude": "38.2829342",
+          "name": "ASKON Malatya \u015eubesi",
+          "url": "https://twitter.com/orhanaydin/status/1622517195937923075?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2342372,
+              36.8361193
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8361193",
+          "longitude": "36.2342372",
+          "name": "D\u00f6rtyol Atat\u00fcrk Ortaokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.0676413,
+              37.3898276
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.3898276",
+          "longitude": "36.0676413",
+          "name": "Kadirli Karma Yurt M\u00fcd\u00fcrl\u00fc\u011f\u00fc",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.324076,
+              38.3427349
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3427349",
+          "longitude": "38.324076",
+          "name": "Kernek Meydan\u0131",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.3274481,
+              38.3483791
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3483791",
+          "longitude": "38.3274481",
+          "name": "H\u00fcrriyet Park\u0131",
+          "url": "https://twitter.com/selahattingrkn/status/1622427802090835968?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8094184,
+              37.1717009
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1717009",
+          "longitude": "38.8094184",
+          "name": "ASKON \u015eanl\u0131urfa \u015eubesi",
+          "url": "https://twitter.com/orhanaydin/status/1622517195937923075?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.789801,
+              37.153063
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.153063",
+          "longitude": "38.789801",
+          "name": "\u015eerif Pa\u015fa Konaklar\u0131",
+          "url": "",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.4048112,
+              38.3467056
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3467056",
+          "longitude": "38.4048112",
+          "name": "Battalgazi K\u0131z \u00d6\u011frenci Yurdu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.788936,
+              37.159867
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.159867",
+          "longitude": "38.788936",
+          "name": "11 Nisan Kapal\u0131 Spor Salonu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Kilis",
+          "geometry": {
+            "coordinates": [
+              37.115309,
+              36.7239925
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.7239925",
+          "longitude": "37.115309",
+          "name": "7 Aral\u0131k Semt Sahas\u0131",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.7925264,
+              37.164986
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.164986",
+          "longitude": "38.7925264",
+          "name": "Bah\u00e7elievler Gen\u00e7lik Merkezi",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.5284279,
+              37.3646036
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.3646036",
+          "longitude": "38.5284279",
+          "name": "Bozova Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622444884618616834?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Gaziantep",
+          "geometry": {
+            "coordinates": [
+              37.3001202,
+              37.1962405
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1962405",
+          "longitude": "37.3001202",
+          "name": "Aktoprak Futbol Sahas\u0131",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.7783002,
+              37.1783106
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1783106",
+          "longitude": "38.7783002",
+          "name": "Ahmet Yesevi Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622444884618616834?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              37.516045,
+              37.9689
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.9689",
+          "longitude": "37.516045",
+          "name": "Nurhak Kullar Eski Belediye Yan\u0131 ",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "\u0130zmir",
+          "geometry": {
+            "coordinates": [
+              27.7244489,
+              38.095413
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.095413",
+          "longitude": "27.7244489",
+          "name": "\u0130zmir Tire Dini \u0130htisas Merkezi ",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2079371,
+              36.2580374
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.2580374",
+          "longitude": "36.2079371",
+          "name": "Yeni Hatay Stadyumu",
+          "url": "https://twitter.com/AFADBaskanlik/status/1623657470278225921?lang=en",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              37.0163513,
+              37.4419634
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.4419634",
+          "longitude": "37.0163513",
+          "name": "Merkez Konteynerkent",
+          "url": "https://twitter.com/ihhgenc/status/1622650765641646091/photo/1",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.9329623,
+              37.1056589
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1056589",
+          "longitude": "38.9329623",
+          "name": "Urfa K\u0131sas Cemevi",
+          "url": "https://twitter.com/turkdaimaileri/status/1622567979270516736?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              29.9857415,
+              40.7718796
+            ],
+            "type": "Point"
+          },
+          "latitude": "40.7718796",
+          "longitude": "29.9857415",
+          "name": "Sabanc\u0131 Mesleki Ve Teknik Anadolu Lisesi",
+          "url": "https://www.instagram.com/p/Cocu6MXtLCj/",
+          "validation_date": ""
+        },
+        {
+          "city": "Kilis",
+          "geometry": {
+            "coordinates": [
+              37.1419682,
+              36.7107963
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.7107963",
+          "longitude": "37.1419682",
+          "name": "Y\u00fczme Havuzu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8024049,
+              37.2332002
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.2332002",
+          "longitude": "38.8024049",
+          "name": "Karak\u00f6pr\u00fc Gen\u00e7lik Merkezi",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2816673,
+              38.3489011
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3489011",
+          "longitude": "38.2816673",
+          "name": "Malatya E\u011fitim ve Ara\u015ft\u0131rma Hastanesi",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "K\u00fctahya",
+          "geometry": {
+            "coordinates": [
+              29.9492018,
+              39.4437697
+            ],
+            "type": "Point"
+          },
+          "latitude": "39.4437697",
+          "longitude": "29.9492018",
+          "name": "K\u00fctahya Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2052149,
+              36.82438
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.82438",
+          "longitude": "36.2052149",
+          "name": "D\u00f6rtyol Makbule Han\u0131m Anaokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.319623,
+              38.34854
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.34854",
+          "longitude": "38.319623",
+          "name": "Emekliler Park\u0131",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8006544,
+              37.2275322
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.2275322",
+          "longitude": "38.8006544",
+          "name": "Urfa Said Nursi Anadolu \u0130mam Hatip Lisesi",
+          "url": "http://www.karakopru.gov.tr/deprem-nedeniyle-vatandaslarimizin-ilcemizde-kullanabilecekleri-gecici-barinma-alanlarimiz",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8146453,
+              37.2376689
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.2376689",
+          "longitude": "38.8146453",
+          "name": "Bah\u00e7e\u015fehir Koleji \u015eanl\u0131urfa Kamp\u00fcs\u00fc\r",
+          "url": "https://twitter.com/bahcesehir_k12/status/1624111945786789888",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2248771,
+              36.8514973
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8514973",
+          "longitude": "36.2248771",
+          "name": "D\u00f6rtyol Anadolu \u0130mamhatip Lisesi",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2271179,
+              36.834202
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.834202",
+          "longitude": "36.2271179",
+          "name": "D\u00f6rtyol \u0130l\u00e7e Emniyet M\u00fcd\u00fcrl\u00fc\u011f\u00fc Bah\u00e7esi",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1274722,
+              36.2307222
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.2307222",
+          "longitude": "36.1274722",
+          "name": "Antakya \u0130l\u00e7e N\u00fcfus M\u00fcd\u00fcrl\u00fc\u011f\u00fc",
+          "url": "https://www.cumhuriyet.com.tr/turkiye/izmirden-afet-bolgesine-56-milyon-tl-destek-2051720",
+          "validation_date": ""
+        },
+        {
+          "city": "Konya",
+          "geometry": {
+            "coordinates": [
+              32.479245,
+              37.907654
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.907654",
+          "longitude": "32.479245",
+          "name": "Esader Valide Sultan Erkek Kur'an Kursu",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2709194,
+              38.3442975
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3442975",
+          "longitude": "38.2709194",
+          "name": "\u015eeker Fabrikas\u0131",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.378839,
+              38.349467
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.349467",
+          "longitude": "38.378839",
+          "name": "Fuar Alan\u0131",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.7834997,
+              37.1806502
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1806502",
+          "longitude": "38.7834997",
+          "name": "\u0130pekyol Gen\u00e7lik Merkezi",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              37.9733439,
+              37.0148775
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0148775",
+          "longitude": "37.9733439",
+          "name": "Birecik Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622444884618616834?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.7683385,
+              37.1713751
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1713751",
+          "longitude": "38.7683385",
+          "name": "\u0130brahim Halil Y\u0131ld\u0131r\u0131m Park\u0131",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Yozgat",
+          "geometry": {
+            "coordinates": [
+              34.8366588,
+              39.8272437
+            ],
+            "type": "Point"
+          },
+          "latitude": "39.8272437",
+          "longitude": "34.8366588",
+          "name": "Yozgat \u015eehit \u0130brahim Y\u0131lmaz Dini \u0130htisas Tesisi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.7701914,
+              37.1643749
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1643749",
+          "longitude": "38.7701914",
+          "name": "S\u00fcleymaniye Seyit H\u0131\u015f\u0131rl\u0131 Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.0948787,
+              37.3919548
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.3919548",
+          "longitude": "36.0948787",
+          "name": "Kadirli Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1997458,
+              36.8585732
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8585732",
+          "longitude": "36.1997458",
+          "name": "D\u00f6rtyol Ye\u015filk\u00f6y 19 Aral\u0131k Ortaokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.9144142,
+              37.5502441
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5502441",
+          "longitude": "36.9144142",
+          "name": "Saim \u00c7otur Spor Salonu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.4139089,
+              36.975337
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.975337",
+          "longitude": "38.4139089",
+          "name": "Suru\u00e7 Gen\u00e7lik Merkezi",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.7792262,
+              37.2263219
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.2263219",
+          "longitude": "38.7792262",
+          "name": "TED \u015eanl\u0131urfa Koleji\r\n",
+          "url": "https://twitter.com/tedbandirma/status/1623744137156521985",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8167637,
+              37.1058688
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1058688",
+          "longitude": "38.8167637",
+          "name": "Yenice Kapal\u0131 Spor Salonu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8278811,
+              37.1624167
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1624167",
+          "longitude": "38.8278811",
+          "name": "S\u0131rr\u0131n Cami",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2054679,
+              36.8587634
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8587634",
+          "longitude": "36.2054679",
+          "name": "D\u00f6rtyol Belediyesi Karahasanpa\u015fa Sosyal Tesisi",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Van",
+          "geometry": {
+            "coordinates": [
+              43.1988353,
+              38.6051065
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.6051065",
+          "longitude": "43.1988353",
+          "name": "Van Abdulhakim Arvasi Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2106612,
+              36.8517525
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8517525",
+          "longitude": "36.2106612",
+          "name": "D\u00f6rtyol Hac\u0131 Ahmet \u0130lhan \u0130lkokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              37.2785949,
+              37.4827384
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.4827384",
+          "longitude": "37.2785949",
+          "name": "Pazarc\u0131k Atat\u00fcrk Park\u0131",
+          "url": "https://twitter.com/buyuksehirkm/status/1623260956162760707",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.1879343,
+              36.5892842
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.5892842",
+          "longitude": "36.1879343",
+          "name": "Prof. Muammer Aksoy Caddesi",
+          "url": "https://www.afad.gov.tr/antakya-ve-iskenderunda-cadir-kentler-olusturuldu-merkezicerik",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              36.979683,
+              37.5876198
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5876198",
+          "longitude": "36.979683",
+          "name": "Do\u011fukent Futbol Sahas\u0131",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "Kayseri",
+          "geometry": {
+            "coordinates": [
+              35.4159362,
+              38.7715624
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.7715624",
+          "longitude": "35.4159362",
+          "name": "Elegance Rezidans",
+          "url": "",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.0485974,
+              36.9823966
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.9823966",
+          "longitude": "38.0485974",
+          "name": "Birecik Spor Salonu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.201123,
+              36.842485
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.842485",
+          "longitude": "36.201123",
+          "name": "D\u00f6rtyol \u00c7ayl\u0131 Barbaros \u0130lkokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2749632,
+              38.3366006
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3366006",
+          "longitude": "38.2749632",
+          "name": "Malatya Nikah Saray\u0131",
+          "url": "https://twitter.com/selahattingrkn/status/1622422476280954882?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.4499889,
+              38.3293273
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3293273",
+          "longitude": "38.4499889",
+          "name": "\u0130lhan Ak\u0131nc\u0131 Erkek \u00d6\u011frenci Yurdu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.9416911,
+              36.7182475
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.7182475",
+          "longitude": "38.9416911",
+          "name": "Ak\u00e7akale Spor Salonu",
+          "url": "https://gsb.gov.tr/haber-detay.html/968",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2744276,
+              38.3482939
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3482939",
+          "longitude": "38.2744276",
+          "name": "Beyda\u011f\u0131 Gen\u00e7lik",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2560683,
+              38.3416121
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3416121",
+          "longitude": "38.2560683",
+          "name": "Malatya Otogar\u0131 (MA\u015eT\u0130)",
+          "url": "https://twitter.com/selahattingrkn/status/1622422476280954882?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": ""
+        },
+        {
+          "city": "Hatay",
+          "geometry": {
+            "coordinates": [
+              36.2156843,
+              36.8329577
+            ],
+            "type": "Point"
+          },
+          "latitude": "36.8329577",
+          "longitude": "36.2156843",
+          "name": "D\u00f6rtyol \u0130lk Kur\u015fun \u0130lkokulu",
+          "url": "https://www.instagram.com/p/CoXjqwZID4_/",
+          "validation_date": "08/02/2023"
+        },
+        {
+          "city": "Trabzon",
+          "geometry": {
+            "coordinates": [
+              39.5410276,
+              41.0479858
+            ],
+            "type": "Point"
+          },
+          "latitude": "41.0479858",
+          "longitude": "39.5410276",
+          "name": "Trabzon Dini Y\u00fcksek \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Osmaniye",
+          "geometry": {
+            "coordinates": [
+              36.2305132,
+              37.0527418
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.0527418",
+          "longitude": "36.2305132",
+          "name": "Osmaniye Tosyal\u0131 Spor Salonu",
+          "url": "https://twitter.com/kasapoglu/status/1622646258308349954",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.273304,
+              38.3471995
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3471995",
+          "longitude": "38.273304",
+          "name": "Merkez Spor Salonu",
+          "url": "",
+          "validation_date": "09/02/2023"
+        },
+        {
+          "city": "Tekirda\u011f",
+          "geometry": {
+            "coordinates": [
+              27.490085,
+              40.9875029
+            ],
+            "type": "Point"
+          },
+          "latitude": "40.9875029",
+          "longitude": "27.490085",
+          "name": "Tekirda\u011f Dini \u0130htisas Merkezi",
+          "url": "https://twitter.com/BabalaTv/status/1624065729254367234/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.78347,
+              37.1648039
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.1648039",
+          "longitude": "38.78347",
+          "name": "\u015eehitlik \u0130lkokulu",
+          "url": "https://twitter.com/sanliurfabld/status/1622478014129782784?s=46&t=BPAhJVUaSEp-FhJyk7mw2A",
+          "validation_date": "07/02/2023"
+        },
+        {
+          "city": "Malatya",
+          "geometry": {
+            "coordinates": [
+              38.2846562,
+              38.3237742
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.3237742",
+          "longitude": "38.2846562",
+          "name": "Meyvecilik Ara\u015ft\u0131rma Enstit\u00fcs\u00fc",
+          "url": "https://twitter.com/TCMalatyaV/status/1624446541623615493/photo/2",
+          "validation_date": ""
+        },
+        {
+          "city": "Kahramanmara\u015f",
+          "geometry": {
+            "coordinates": [
+              37.208319,
+              38.210217
+            ],
+            "type": "Point"
+          },
+          "latitude": "38.210217",
+          "longitude": "37.208319",
+          "name": "Elbistan Spor Salonu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.8037256,
+              37.2038155
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.2038155",
+          "longitude": "38.8037256",
+          "name": "Ay\u015fe H\u00fcmeyra Anadolu \u0130mam Hatip Lisesi",
+          "url": "http://www.karakopru.gov.tr/deprem-nedeniyle-vatandaslarimizin-ilcemizde-kullanabilecekleri-gecici-barinma-alanlarimiz",
+          "validation_date": ""
+        },
+        {
+          "city": "\u015eanl\u0131urfa",
+          "geometry": {
+            "coordinates": [
+              38.972966,
+              37.5951818
+            ],
+            "type": "Point"
+          },
+          "latitude": "37.5951818",
+          "longitude": "38.972966",
+          "name": "Hilvan Spor Salonu",
+          "url": "https://www.instagram.com/p/CocFO24siYT/?igshid=NTdlMDg3MTY=",
+          "validation_date": ""
+        }
+      ],
+      "filled": true,
+      "getFillColor": [
+        255,
+        140,
+        0
+      ],
+      "getLineColor": [
+        0,
+        0,
+        0
+      ],
+      "getPosition": "@@=geometry.coordinates",
+      "getRadius": "@@=20",
+      "id": "1fba0490-e683-48f7-997c-6b64f56adbdf",
+      "lineWidthMinPixels": 1,
+      "opacity": 0.8,
+      "pickable": true,
+      "radiusMaxPixels": 10,
+      "radiusMinPixels": 5,
+      "radiusScale": 6,
+      "stroked": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'html': '', 'style': {'font-family': 'Arial', 'color': 'white'}};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
