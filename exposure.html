@@ -44,14 +44,19 @@
   "layers": [
     {
       "@@type": "GeoJsonLayer",
+      "autoHighlight": true,
       "data": [
         {
+          "MMI": 8,
           "Name": "poly_8_0",
           "altitudeMode": null,
           "begin": null,
           "description": null,
           "drawOrder": null,
           "end": null,
+          "expose_syr": "0",
+          "expose_total": "1,504,159\t",
+          "expose_tur": "1,504,159\t",
           "extrude": 0,
           "geometry": {
             "coordinates": [
@@ -252,22 +257,28 @@
         0
       ],
       "getText": "@@=Name",
-      "id": "19e40563-fd4c-4594-b055-1d3490686a47",
+      "id": "e45c4369-0310-443b-a77d-0408d410e635",
       "opacity": 0.2,
+      "pickable": true,
       "stroked": true,
       "widthMinPixels": 5,
       "wireframe": false
     },
     {
       "@@type": "GeoJsonLayer",
+      "autoHighlight": true,
       "data": [
         {
+          "MMI": 7,
           "Name": "poly_7_0",
           "altitudeMode": null,
           "begin": null,
           "description": null,
           "drawOrder": null,
           "end": null,
+          "expose_syr": "35,876",
+          "expose_total": "3,339,216",
+          "expose_tur": "3,303,340",
           "extrude": 0,
           "geometry": {
             "coordinates": [
@@ -743,22 +754,28 @@
         0
       ],
       "getText": "@@=Name",
-      "id": "56b06a14-c17b-4750-a03b-d0603e95f38d",
+      "id": "97a643a0-477e-4761-8862-a04422dd5e44",
       "opacity": 0.2,
+      "pickable": true,
       "stroked": true,
       "widthMinPixels": 5,
       "wireframe": false
     },
     {
       "@@type": "GeoJsonLayer",
+      "autoHighlight": true,
       "data": [
         {
+          "MMI": 6,
           "Name": "poly_6_0",
           "altitudeMode": null,
           "begin": null,
           "description": null,
           "drawOrder": null,
           "end": null,
+          "expose_syr": "2,351,724",
+          "expose_total": "11,832,156",
+          "expose_tur": "9,480,432",
           "extrude": 0,
           "geometry": {
             "coordinates": [
@@ -1576,22 +1593,28 @@
         0
       ],
       "getText": "@@=Name",
-      "id": "bd8daa82-76b6-48ad-a99a-6bf3ca19c964",
+      "id": "62bed082-ec17-4e73-9e69-21cd3110256c",
       "opacity": 0.2,
+      "pickable": true,
       "stroked": true,
       "widthMinPixels": 5,
       "wireframe": false
     },
     {
       "@@type": "GeoJsonLayer",
+      "autoHighlight": true,
       "data": [
         {
+          "MMI": 5,
           "Name": "poly_5_0",
           "altitudeMode": null,
           "begin": null,
           "description": null,
           "drawOrder": null,
           "end": null,
+          "expose_syr": "5,705,938",
+          "expose_total": "19,414,360",
+          "expose_tur": "13,708,422",
           "extrude": 0,
           "geometry": {
             "coordinates": [
@@ -3166,8 +3189,9 @@
         147
       ],
       "getText": "@@=Name",
-      "id": "07447cef-7c19-41d7-bf29-2915a97040a3",
+      "id": "c71522b9-28f6-452c-aa37-181813a7bd9c",
       "opacity": 0.2,
+      "pickable": true,
       "stroked": true,
       "widthMinPixels": 5,
       "wireframe": false
@@ -3182,7 +3206,7 @@
     }
   ]
 };
-    const tooltip = {'text': 'MMI: {Name}'};
+    const tooltip = {'text': 'MMI: {MMI} \n Exposed population - Türkiye: {expose_tur}\nExposed population - Syria: {expose_syr}\nTotal exposed population: {expose_total}'};
     const customLibraries = null;
     const configuration = null;
 
